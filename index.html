@@ -8,37 +8,68 @@
 </head>
 <body>
 <div class="scanline"></div>
+
+<div class="overlay" id="resultOverlay">
+  <div class="overlay-box">
+    <div class="overlay-icon" id="overlayIcon">✓</div>
+    <div class="overlay-title" id="overlayTitle">ACCESS GRANTED</div>
+    <div class="overlay-msg" id="overlayMsg"></div>
+    <div class="overlay-best" id="overlayBest"></div>
+    <button class="overlay-btn" onclick="closeOverlay()">[ PLAY AGAIN ]</button>
+  </div>
+</div>
+
 <div class="container">
   <div class="corner tl"></div>
   <div class="corner tr"></div>
   <div class="corner bl"></div>
   <div class="corner br"></div>
+
   <div class="title">NUM BREACH</div>
-  <div class="subtitle">[ CRACK THE CODE · 1–100 · 10 TRIES ]</div>
+  <div class="subtitle">[ CRACK THE CODE ]</div>
+
+  <div class="difficulty-row">
+    <button class="diff-btn active" id="diff-easy" onclick="setDifficulty('easy')">EASY</button>
+    <button class="diff-btn" id="diff-normal" onclick="setDifficulty('normal')">NORMAL</button>
+    <button class="diff-btn" id="diff-hard" onclick="setDifficulty('hard')">HARD</button>
+  </div>
+
   <div class="range-display">
     <span class="range-label">RANGE</span>
-    <span class="range-val">001 — 100</span>
+    <span class="range-val" id="rangeVal">001 — 050</span>
     <span class="range-label">MAX TRIES</span>
-    <span class="range-val">10</span>
+    <span class="range-val" id="maxTriesVal">15</span>
   </div>
+
+  <div class="best-row">
+    <span class="best-label">BEST SCORE</span>
+    <span class="best-val" id="bestScore">—</span>
+  </div>
+
   <div class="history-label">// ATTEMPT LOG</div>
   <div class="attempts-bar" id="attemptsBar"></div>
+
   <div class="feedback-box" id="feedbackBox">
     <div class="feedback-main idle" id="feedbackMain">AWAITING INPUT</div>
     <div class="feedback-sub" id="feedbackSub">ENTER A NUMBER TO BEGIN</div>
   </div>
+
   <div class="input-row">
-    <input type="number" class="guess-input" id="guessInput" placeholder="???" min="1" max="100">
+    <input type="number" class="guess-input" id="guessInput" placeholder="???" min="1">
     <button class="submit-btn" id="submitBtn" onclick="makeGuess()">ENTER</button>
   </div>
+
   <div class="stats-row">
     <span>GUESSES USED: <span class="stat-val" id="usedCount">0</span></span>
-    <span>REMAINING: <span class="stat-val" id="leftCount">10</span></span>
+    <span>REMAINING: <span class="stat-val" id="leftCount">15</span></span>
   </div>
+
   <div class="history-label">// GUESS HISTORY</div>
   <div class="history-list" id="historyList"></div>
+
   <button class="restart-btn" onclick="initGame()">[ RESTART GAME ]</button>
 </div>
+
 <script src="game.js"></script>
 </body>
 </html>
